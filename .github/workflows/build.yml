@@ -105,11 +105,16 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # List all files in artifacts
+          ls -laR artifacts/
+
+          # Create release with artifacts
           TAG_NAME="${{ github.ref_name }}"
           TITLE_NAME="${TAG_NAME#v} Release"
           gh release create "$TAG_NAME" \
             --title "$TITLE_NAME" \
             --generate-notes \
-            artifacts/**/*.exe \
-            artifacts/**/*.tar.gz \
-            artifacts/**/checksums.txt
+            artifacts/snake-game-windows/snake-game-windows.exe \
+            artifacts/snake-game-linux/snake-game-linux.tar.gz \
+            artifacts/snake-game-macos/snake-game-macos.tar.gz \
+            artifacts/checksums.txt
