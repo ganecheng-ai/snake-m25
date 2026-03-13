@@ -31,7 +31,7 @@ dependencies = [
 ]
 
 [project.scripts]
-snake-game = "main:run"
+snake-game = "main:main"
 
 [project.optional-dependencies]
 dev = [

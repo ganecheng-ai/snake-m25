@@ -66,6 +66,16 @@ pip install pyinstaller
 pyinstaller --onefile --name snake-game src/main.py
 ```
 
+### 运行测试
+
+```bash
+# 安装测试依赖（如需要）
+pip install pytest
+
+# 运行测试
+python tests/test_snake.py
+```
+
 ## 项目结构
 
 ```
@@ -73,6 +83,7 @@ snake-m25/
 ├── src/
 │   ├── main.py          # 游戏主程序
 │   └── logs/            # 日志文件
+├── tests/               # 测试文件
 ├── .github/
 │   └── workflows/       # CI/CD 配置
 ├── pyproject.toml       # 项目配置

@@ -547,7 +547,8 @@ class SnakeGame:
 # ============================================
 # 程序入口
 # ============================================
-if __name__ == '__main__':
+def main():
+    """程序主入口函数"""
     try:
         logger.info("=" * 50)
         logger.info("启动贪吃蛇游戏")
@@ -558,3 +559,7 @@ if __name__ == '__main__':
     except Exception as e:
         logger.exception(f"游戏发生严重错误: {e}")
         sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()
