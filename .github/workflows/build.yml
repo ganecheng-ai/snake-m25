@@ -76,6 +76,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
@@ -100,12 +102,10 @@ jobs:
           cat checksums.txt
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            artifacts/**/*.exe
-            artifacts/**/*.tar.gz
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --title "v${{ github.ref_name }} Release" \
+            --generate-notes \
+            artifacts/**/*.exe \
+            artifacts/**/*.tar.gz \
             artifacts/**/checksums.txt
-          generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
