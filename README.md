@@ -71,9 +71,8 @@ pyinstaller --onefile --name snake-game src/main.py
 ```
 snake-m25/
 ├── src/
-│   └── main.py          # 游戏主程序
-├── assets/              # 资源文件
-├── logs/                # 日志文件
+│   ├── main.py          # 游戏主程序
+│   └── logs/            # 日志文件
 ├── .github/
 │   └── workflows/       # CI/CD 配置
 ├── pyproject.toml       # 项目配置
