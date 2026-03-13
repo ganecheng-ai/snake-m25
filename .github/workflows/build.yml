@@ -39,11 +39,12 @@ jobs:
 
       - name: Build on Windows
         if: matrix.os == 'windows-latest'
+        shell: pwsh
         run: |
           pip install pyinstaller
           pyinstaller --onefile --name snake-game src/main.py
-          mkdir -p dist
-          mv dist/snake-game.exe dist/${{ matrix.artifact_name }}${{ matrix.extension }}
+          New-Item -ItemType Directory -Path dist -Force -ErrorAction SilentlyContinue
+          Move-Item dist/snake-game.exe "dist/${{ matrix.artifact_name }}${{ matrix.extension }}"
 
       - name: Build on macOS
         if: matrix.os == 'macos-latest'
