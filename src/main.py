@@ -11,7 +11,6 @@ import logging
 import random
 import math
 import pygame
-from pygame import gfxdraw
 from datetime import datetime
 from pathlib import Path
 
